@@ -16,10 +16,13 @@ def list_todo_menu():
             ...
 
         elif choice == "3":
-            ...
+            filter_by_priority = int(input("Enter priority (1-5): "))
+            above = input("Above priority? (y/n): ").lower() == 'y'
+            
+            print(td.filter_by_priority(filter_by_priority, above))
 
-        elif choice == "4":
-            ...
+        elif choice == "0":
+            break
 
         else:
             print("Invalid choice!")
@@ -31,19 +34,23 @@ def main():
         print("1. Create todo")
         print("2. Mark as done")
         print("3. List todo")
-        print("4. Delet toto")
+        print("4. Delete todo")
         print("0. Quit")
 
-        choice = input("Enter choice")
+        choice = input("Enter choice: ")
 
         if choice == "1":
-            ...
+            td.create_todo(
+                input("Enter task: "),
+                int(input("Enter priority (1-5): "))
+            )
 
         elif choice == "2":
-            ...
+            td.mark_todo_done(input("Enter task to mark as done: "))
+            print("Todo marked as done." if td.mark_todo_done(input("Enter task to mark as done: ")) else "Task not found.")
 
         elif choice == "3":
-            ...
+            list_todo_menu()
 
         elif choice == "4":
             ...
